@@ -38,7 +38,7 @@ const Navbar = () => {
           </nav>
             </div>
            <div className="hidden lg:block md:w-1/3 lg:flex justify-end">
-            <button className="rounded-lg bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-4 px-7">Get Quote</button>
+            <button className="rounded bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-4 px-7">Get Quote</button>
            </div>
            <div id="icon" className="flex justify-end items-center lg:hidden">
           <TableOfContentsIcon className="text-red-700 border border-red-700 rounded h-12 w-12 p-3" />

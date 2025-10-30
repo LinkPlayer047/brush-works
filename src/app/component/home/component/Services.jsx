@@ -78,7 +78,7 @@ const Services = () => {
           </div>
         </div>
         <div className="mt-20">
-          <button className="bg-[#e71954] hover:bg-[#c20e42] text-white font-semibold py-3 px-8 rounded-lg transition">
+          <button className="bg-[#e71954] hover:bg-[#c20e42] text-white font-semibold py-3 px-8 rounded transition">
             View All Services
           </button>
         </div>

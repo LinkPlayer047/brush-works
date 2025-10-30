@@ -63,7 +63,7 @@ const About = () => {
             </div>
           </div>
           <div className="w-full mt-5">
-            <button className="rounded-lg bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-4 px-7">Know More</button>
+            <button className="rounded bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-4 px-7">Know More</button>
           </div>
         </div>
       </div>

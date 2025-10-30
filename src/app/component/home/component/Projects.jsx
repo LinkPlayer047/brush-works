@@ -14,7 +14,7 @@ const Projects = () => {
           </h2>
         </div>
         <div className="md:w-1/2 flex md:justify-end justify-start">
-          <button className="bg-[#e71954] hover:bg-[#c20e42] text-white font-semibold py-3 px-8 rounded-lg transition">
+          <button className="bg-[#e71954] hover:bg-[#c20e42] text-white font-semibold py-3 px-8 rounded transition">
             Get a Free Quote
           </button>
         </div>
