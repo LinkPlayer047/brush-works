@@ -8,7 +8,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 const Ways = () => {
   return (
     <div>
-      <div className="mycontainer py-20 flex flex-col items-center justify-center">
+      <div className="mycontainer py-35 flex flex-col items-center justify-center">
         <p className="text-black uppercase">
           <span className="text-[#e71954]">//</span> More Ways
         </p>

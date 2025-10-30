@@ -48,7 +48,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center w-full lg:w-[60%]">
+        <div className="flex items-center justify-center w-full z-40 lg:w-[60%]">
           <img
             src="/hero.png"
             alt="Hero"

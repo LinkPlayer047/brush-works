@@ -3,7 +3,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 const Team = () => {
   return (
-    <div className="bg-white w-full flex flex-col items-center justify-center py-20">
+    <div className="bg-white w-full flex flex-col items-center justify-center py-40">
       <div className="mycontainer flex flex-col items-center justify-center gap-3">
         <p className="text-black uppercase">
           <span className="text-[#e71954]">//</span> Our story

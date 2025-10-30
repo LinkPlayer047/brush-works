@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 
 const Clients = () => {
   return (
-    <section className="bg-[#f1f6fa] py-20 relative">
+    <section className="bg-[#f1f6fa] py-35 relative z-20">
       <div className="max-w-7xl mx-auto px-4 flex flex-col items-center">
         <div className="text-center md:w-full max-w-3xl mb-20">
           <p className="uppercase text-sm tracking-widest text-gray-700">
