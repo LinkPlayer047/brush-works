@@ -22,7 +22,7 @@ const Sections = () => {
                   Transform your interior spaces with BrushWorks’ expert indoor painting services. We specialize in creating inviting and vibrant environments, offering precise color matching and flawless finishes. From single rooms to entire homes, our attention to detail ensures a seamless and beautiful result every time.
                 </p>
               </div>
-              <button className="rounded-lg bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-3 px-6 mt-6 w-fit">
+              <button className="rounded bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-3 px-6 mt-6 w-fit">
                 Get Quote Now
               </button>
             </div>
@@ -44,7 +44,7 @@ const Sections = () => {
                   Enhance your home’s exterior with our weather-resistant outdoor painting solutions. Our team uses high-quality paints & techniques to protect your home from the elements while boosting its curb appeal. Whether it’s a fresh coat or a complete color change, we deliver durable and stunning finishes.
                 </p>
               </div>
-              <button className="rounded-lg bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-3 px-6 mt-6 w-fit">
+              <button className="rounded bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-3 px-6 mt-6 w-fit">
                 Get Quote Now
               </button>
             </div>
@@ -66,7 +66,7 @@ const Sections = () => {
                   Give new life to your favorite objects with our specialized object painting services. From decorative items to functional pieces, we provide meticulous care and creativity, ensuring each object complements your space beautifully with a fresh, personalized touch.
                 </p>
               </div>
-              <button className="rounded-lg bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-3 px-6 mt-6 w-fit">
+              <button className="rounded bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-3 px-6 mt-6 w-fit">
                 Get Quote Now
               </button>
             </div>
@@ -88,7 +88,7 @@ const Sections = () => {
                   Revitalize your furniture with BrushWorks’ custom painting services. Our skilled team offers a range of finishes and colors to transform your furniture pieces, enhancing their appearance and longevity. Whether it’s a beloved antique or a modern piece, we ensure a perfect match for your decor.
                 </p>
               </div>
-              <button className="rounded-lg bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-3 px-6 mt-6 w-fit">
+              <button className="rounded bg-[#e7194f] text-white font-semibold hover:bg-[#c20e42] py-3 px-6 mt-6 w-fit">
                 Get Quote Now
               </button>
             </div>
