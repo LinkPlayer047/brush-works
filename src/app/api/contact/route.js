@@ -1,19 +1,25 @@
 import { NextResponse } from "next/server";
+import { MongoClient } from "mongodb";
 import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
-    const body = await req.json();
-    const { name, email, message } = body;
+    const { name, email, service, message } = await req.json();
 
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: "All fields required" }, { status: 400 });
-    }
+    // ✅ MongoDB Connection
+    const client = await MongoClient.connect(process.env.MONGODB_URI);
+    const db = client.db("contactDB");
+    const collection = db.collection("messages");
 
-    // ✅ Connect to MongoDB
-    await connectMongo();
+    await collection.insertOne({
+      name,
+      email,
+      service,
+      message,
+      createdAt: new Date(),
+    });
 
-    // ✅ Email transporter setup
+    // ✅ Nodemailer setup
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -22,17 +28,31 @@ export async function POST(req) {
       },
     });
 
-    // ✅ Send email
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+      from: `"Website Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
-      subject: `New Message from ${name}`,
-      text: `Email: ${email}\n\nMessage: ${message}`,
+      subject: `New Contact Message from ${name}`,
+      text: `
+      📩 New Message from Website:
+
+      Name: ${name}
+      Email: ${email}
+      Service: ${service}
+      Message: ${message}
+      `,
     });
 
-    return NextResponse.json({ success: true, message: "Message sent successfully!" });
+    client.close();
+
+    return NextResponse.json(
+      { message: "✅ Message received successfully!" },
+      { status: 200 }
+    );
   } catch (error) {
-    console.error("Error in /api/contact:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("Error:", error);
+    return NextResponse.json(
+      { message: "❌ Something went wrong!", error },
+      { status: 500 }
+    );
   }
 }
