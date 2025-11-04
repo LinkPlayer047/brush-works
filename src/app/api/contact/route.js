@@ -1,25 +1,26 @@
 import { NextResponse } from "next/server";
-import { MongoClient } from "mongodb";
 import nodemailer from "nodemailer";
+import mongoose from "mongoose";
+
+// ✅ MongoDB connect function
+const connectMongo = async () => {
+  if (mongoose.connection.readyState >= 1) return;
+  return mongoose.connect(process.env.MONGO_URI);
+};
 
 export async function POST(req) {
   try {
-    const { name, email, service, message } = await req.json();
+    const body = await req.json();
+    const { name, email, message } = body;
 
-    // ✅ MongoDB Connection
-    const client = await MongoClient.connect(process.env.MONGO_URI);
-    const db = client.db("contactDB");
-    const collection = db.collection("messages");
+    if (!name || !email || !message) {
+      return NextResponse.json({ error: "All fields required" }, { status: 400 });
+    }
 
-    await collection.insertOne({
-      name,
-      email,
-      service,
-      message,
-      createdAt: new Date(),
-    });
+    // ✅ Connect to MongoDB
+    await connectMongo();
 
-    // ✅ Nodemailer setup
+    // ✅ Email transporter setup
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -28,31 +29,17 @@ export async function POST(req) {
       },
     });
 
+    // ✅ Send email
     await transporter.sendMail({
-      from: `"Website Contact" <${process.env.EMAIL_USER}>`,
+      from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
-      subject: `New Contact Message from ${name}`,
-      text: `
-      📩 New Message from Website:
-
-      Name: ${name}
-      Email: ${email}
-      Service: ${service}
-      Message: ${message}
-      `,
+      subject: `New Message from ${name}`,
+      text: `Email: ${email}\n\nMessage: ${message}`,
     });
 
-    client.close();
-
-    return NextResponse.json(
-      { message: "✅ Message received successfully!" },
-      { status: 200 }
-    );
+    return NextResponse.json({ success: true, message: "Message sent successfully!" });
   } catch (error) {
-    console.error("Error:", error);
-    return NextResponse.json(
-      { message: "❌ Something went wrong!", error },
-      { status: 500 }
-    );
+    console.error("Error in /api/contact:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
