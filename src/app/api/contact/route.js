@@ -1,12 +1,5 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import mongoose from "mongoose";
-
-// ✅ MongoDB connect function
-const connectMongo = async () => {
-  if (mongoose.connection.readyState >= 1) return;
-  return mongoose.connect(process.env.MONGO_URI);
-};
 
 export async function POST(req) {
   try {
